@@ -6,7 +6,7 @@
 
 Eirovaloda ir moderns rīks, kas palīdz lietotājiem patstāvīgi apgūt Eiropas Savienības valodas, izmantojot intuitīvu, daudzvalodu tīmekļa platformu. Tā mērķis ir veicināt valodu daudzveidību, kultūras izpratni un piekļuvi mācību resursiem visā Eiropas valodās.
 
-## 🔑 Galvenās iezīmes
+## 🔑 Galvenās mājaslapas iezīmes
 
 - 📚 Interaktīvi valodas nozaru materiāli
 - 🌐 Atbalsts visām ES oficiālajām valodām
