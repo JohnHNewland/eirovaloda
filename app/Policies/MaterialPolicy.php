@@ -8,6 +8,12 @@ use Illuminate\Auth\Access\Response;
 
 class MaterialPolicy
 {
+    public function before(User $user, string $ability)
+    {
+        if ($user->isAdmin()) {
+            return true;
+        }
+    }
     /**
      * Determine whether the user can view any models.
      */
@@ -29,7 +35,7 @@ class MaterialPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->isTeacher();
     }
 
     /**

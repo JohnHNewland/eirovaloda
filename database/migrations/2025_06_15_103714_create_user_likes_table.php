@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_likes', function (Blueprint $table) {
-            $table->id('instance_id');
-            $table->foreignId('user_id')->constrained('users', 'user_id')->onDelete('cascade');
-            $table->foreignId('material_id')->constrained('materials', 'material_id')->onDelete('cascade');
+            $table->id('id');
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->foreignId('material_id')->constrained('materials', 'id')->onDelete('cascade');
         });
     }
 

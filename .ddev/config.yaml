@@ -23,7 +23,7 @@ corepack_enable: false
 # See https://ddev.readthedocs.io/en/stable/users/quickstart/ for more
 # information on the different project types
 
-# docroot: <relative_path> # Relative path to the directory containing index.php.
+# docroot: <relative_path> # Relative path to the directory containing index.blade.php.
 
 # php_version: "8.3"  # PHP version to use, "5.6" through "8.4"
 
@@ -58,7 +58,7 @@ corepack_enable: false
 
 # host_xhgui_port: 8142
 # Can be used to change the host binding port of the xhgui
-# application. Rarely used; only when port conflict and 
+# application. Rarely used; only when port conflict and
 # bind_all_ports is used (normally with router disabled)
 
 # xhprof_enabled: false  # Set to true to enable Xhprof and "ddev start" or "ddev restart"

@@ -13,7 +13,7 @@ Eirovaloda ir moderns rīks, kas palīdz lietotājiem patstāvīgi apgūt Eiropa
 - 🧠 Pašmācība
 - 💬 Vārdu krājuma uzlabošana
 
-## 🚀 Darba sākšana
+## 🚀 Darba pašreizējā stadija
 
 Projekts vēl ir izstrādes stadijā. Sekojiet atjauninājumiem!
 

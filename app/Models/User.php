@@ -54,4 +54,14 @@ class User extends Authenticatable
     public function materials() {
         return $this->hasMany(Material::class);
     }
+
+    public function isAdmin() {
+        return $this->role === 'admin';
+    }
+    public function isTeacher() {
+        return $this->role === 'teacher';
+    }
+    public function isRegularUser() {
+        return $this->role === 'user';
+    }
 }

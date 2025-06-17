@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'resend'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,6 +68,14 @@ return [
         'sendmail' => [
             'transport' => 'sendmail',
             'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+        ],
+
+        'mailgun' => [
+            'transport' => 'mailgun',
+            // Optional timeout config
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'log' => [

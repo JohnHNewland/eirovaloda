@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('folders', function (Blueprint $table) {
-            $table->id('folder_id');
-            $table->foreignId('parent_id')->nullable()->constrained('folders', 'folder_id')->onDelete('cascade');
+            $table->id('id');
+            $table->foreignId('parent_id')->nullable()->constrained('folders', 'id')->onDelete('cascade');
             $table->string('folder_name', 30);
         });
     }

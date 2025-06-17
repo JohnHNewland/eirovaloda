@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('materials', function (Blueprint $table) {
-            $table->id('material_id');
+            $table->id('id');
             $table->string('file_name', 50);
             $table->string('file_path');
             $table->string('description', 500);
-            $table->integer('likes');
-            $table->string('language', 30);
-            $table->foreign('language')->references('language')->on('languages')->onDelete('cascade');
-            $table->string('language_level', 30);
-            $table->foreign('language_level')->references('language_level')->on('language_levels')->onDelete('cascade');
-            $table->string('language_aspect', 30)->nullable();
-            $table->foreign('language_aspect')->references('language_aspect')->on('language_aspects')->onDelete('cascade');
-            $table->foreignId('user_id')->constrained('users', 'user_id')->onDelete('cascade');
-            $table->foreignId('folder_id')->constrained('folders', 'folder_id')->onDelete('cascade');
+            $table->integer('likes')->default(0);
+            $table->string('language_id', 30);
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
+            $table->string('language_level_id', 30);
+            $table->foreign('language_level_id')->references('id')->on('language_levels')->onDelete('cascade');
+            $table->string('language_aspect_id', 30);
+            $table->foreign('language_aspect_id')->references('id')->on('language_aspects')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users', 'id')->onDelete('cascade');
+            $table->foreignId('folder_id')->constrained('folders', 'id')->onDelete('cascade');
         });
     }
 

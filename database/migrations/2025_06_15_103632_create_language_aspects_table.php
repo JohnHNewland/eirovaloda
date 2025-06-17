@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('language_aspects', function (Blueprint $table) {
-            $table->string('language_aspect', 30)->primary();
+            $table->string('id', 30)->primary();
         });
     }
 
