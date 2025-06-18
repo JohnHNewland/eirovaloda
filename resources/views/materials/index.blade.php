@@ -2,7 +2,7 @@
     <x-slot name="title">
         Materials
     </x-slot>
-    <style>
+    <x-slot name="style">
         #materialBody {
             height: 100%;
         }
@@ -12,7 +12,15 @@
         #topics {
             width: 25%;
         }
+        #toolbar {
+            position: sticky;
+            z-index: 1000;
+            top: 0;
+        }
         #materials {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             width: 55%;
             margin-left: 20%;
         }
@@ -47,7 +55,7 @@
             list-style: none;
         }
 
-        #upload {
+        #upload{
             font-weight: 500;
             font-family: 'Buenard', serif;
             font-size: 125%;
@@ -55,7 +63,21 @@
             color: black;
         }
 
-    </style>
+        .material {
+            font-weight: 500;
+            font-family: 'Buenard', serif;
+            font-size: 125%;
+            text-decoration: underline;
+            color: black;
+        }
+
+        #materialTitle {
+            font-weight: 500;
+            font-family: 'Buenard', serif;
+            margin: 2vh 0;
+        }
+
+    </x-slot>
     <div id="materialBody" class="d-flex flex-row">
         <div id="topics">
             <ul>
@@ -65,11 +87,11 @@
                             <p>A1</p>
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
-                            <li><a href="">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A1', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A1', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A1', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A1', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A1', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -80,11 +102,11 @@
                             <p>A2</p>
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
-                            <li><a href="">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A2', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A2', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A2', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A2', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['A2', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -95,10 +117,10 @@
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
                             <li><a href="{{route('materials.aspect', ['B1', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B1', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B1', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B1', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B1', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -108,11 +130,11 @@
                             <p>B2</p>
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
-                            <li><a href="">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B2', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B2', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B2', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B2', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['B2', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -122,11 +144,11 @@
                             <p>C1</p>
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
-                            <li><a href="">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C1', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C1', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C1', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C1', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C1', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -136,11 +158,11 @@
                             <p>C2</p>
                         </summary>
                         <ul class="ml-6 my-2 space-y-1">
-                            <li><a href="">{{ __('materials.listening') }}</a></li>
-                            <li><a href="">{{ __('materials.reading') }}</a></li>
-                            <li><a href="">{{ __('materials.syntax') }}</a></li>
-                            <li><a href="">{{ __('materials.morphology') }}</a></li>
-                            <li><a href="">{{ __('materials.specifics') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C2', 'materials.listening'])}}">{{ __('materials.listening') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C2', 'materials.reading'])}}">{{ __('materials.reading') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C2', 'materials.syntax'])}}">{{ __('materials.syntax') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C2', 'materials.morphology'])}}">{{ __('materials.morphology') }}</a></li>
+                            <li><a href="{{route('materials.aspect', ['C2', 'materials.specifics'])}}">{{ __('materials.specifics') }}</a></li>
                         </ul>
                     </details>
                 </li>
@@ -149,12 +171,13 @@
         <div id="vertLine"></div>
         <div id="materials" class="d-flex flex-column">
             <div id="toolbar" class="d-flex justify-content-between">
-                <form>
+                <form method="POST" action="{{route('materials.applyFilter')}}">
+                    @csrf
                     <label for="filterDropdown" class="form-label">{{__('materials.filter')}}</label>
-                    <select id="languageSelect">
+                    <select id="languageSelect" name="languageSelect" onchange="this.form.submit()">
                         <option value="">{{__('materials.selectLanguage')}}</option>
                         @foreach($languages as $language)
-                            <option value="{{$language->id}}" {{ old('languageSelect') == __($language->id) ? 'selected' : '' }}>
+                            <option value="{{$language->id}}" {{ __(old('languageSelect')) == __($language->id) ? 'selected' : '' }}>
                                 {{__($language->id)}}
                             </option>
                         @endforeach
@@ -164,9 +187,14 @@
                     <a id="upload" href="{{route('materials.showUpload')}}">{{__('materials.upload')}}</a>
                 @endcan
             </div>
-            @foreach($materials as $material)
-                <a href="#">{{$material->file_name}}</a>
-            @endforeach
+            @if($materials)
+                <h1 id="materialTitle">All materials</h1>
+            @endif
+            <div id="materialDocs">
+                @foreach($materials as $material)
+                    <a class="material" href="{{route('materials.show', $material->id)}}">{{$material->file_name}}</a>
+                @endforeach
+            </div>
         </div>
     </div>
 </x-layout>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
@@ -19,8 +20,11 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'localization'], function 
     // Other localized routes
     Route::get('/lang', [LanguageController::class, 'switchLang'])->name('lang.switch');
     Route::get('/materials', [MaterialController::class, 'index'])->name('materials');
+    Route::post('/materials/filter', [MaterialController::class, 'applyFilter'])->name('materials.applyFilter');
+    Route::get('/materials/view/{id}', [MaterialController::class, 'show'])->name('materials.show');
+    Route::get('/materials/download/{id}', [MaterialController::class, 'download'])->name('materials.download');
     Route::get('/materials/{level}/{aspect}', [MaterialController::class, 'indexAspect'])->name('materials.aspect');
-    Route::post('/apply-filter', [MaterialController::class, 'applyFilter'])->name('materials.applyFilter');
+
 
     Route::middleware('guest')->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('showLogin');
@@ -33,11 +37,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'localization'], function 
     Route::middleware(['auth', 'role:admin,teacher,user'])->group(function () {
         Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
         Route::get('/profile/{profile}', [UserController::class, 'showProfile'])->name('showProfile');
+        Route::post('/materials/view/like/{id}/{like}', [LikeController::class, 'like'])->name('materials.like');
     });
 
     Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
-        Route::get('/materials/upload-form', [MaterialController::class, 'showUpload'])->name('materials.showUpload');
-        Route::post('/materials/upload-form', [MaterialController::class, 'create'])->name('materials.upload');
+        Route::get('/materials/upload-form', [MaterialController::class, 'create'])->name('materials.showUpload');
+        Route::post('/materials/upload-form', [MaterialController::class, 'store'])->name('materials.upload');
     });
 
 

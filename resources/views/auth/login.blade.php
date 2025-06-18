@@ -2,7 +2,7 @@
     <x-slot name="title">
         {{__('navbar.login')}}
     </x-slot>
-    <style>
+    <x-slot name="style">
         #wrapper {
             display: flex;
             justify-content: center;
@@ -53,8 +53,8 @@
             display: flex;
             justify-content: center;
         }
+    </x-slot>
 
-    </style>
     <div id="error-wrapper">
         @if ($errors->has('auth'))
             <div class="alert alert-danger error-msg">

@@ -12,9 +12,9 @@ class Material extends Model
         'file_name',
         'file_path',
         'description',
-        'language',
-        'language_level',
-        'language_aspect',
+        'language_id',
+        'language_level_id',
+        'language_aspect_id',
         'user_id',
         'folder_id',
     ];

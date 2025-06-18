@@ -2,7 +2,7 @@
     <x-slot name="title">
         Eirovaloda
     </x-slot>
-    <style>
+    <x-slot name="style">
         #intro {
             height: 70%;
             justify-content: space-between;
@@ -28,7 +28,7 @@
             display: flex;
             justify-content: center;
         }
-    </style>
+    </x-slot>
     <div id="success-wrapper">
         @if (session('status'))
             <div class="alert success-msg">

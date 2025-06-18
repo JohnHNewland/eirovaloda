@@ -2,8 +2,7 @@
     <x-slot name="title">
         {{__('navbar.register')}}
     </x-slot>
-
-    <style>
+    <x-slot name="style">
         #wrapper {
             display: flex;
             justify-content: center;
@@ -34,9 +33,7 @@
             font-size: 125%;
         }
 
-
-
-    </style>
+    </x-slot>
     <div id="wrapper">
         <form id="form" action="{{ route('register') }}" method="POST">
             @csrf

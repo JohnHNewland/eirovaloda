@@ -9,6 +9,7 @@ return [
     'filter' => 'Filtrēt pēc valodas',
     'selectLanguage' => 'Izvēlies valodu',
     'upload' => 'Augšupielādēt',
+    'download' => 'Lejupielādēt',
     'name' => 'Nosaukums:',
     'file' => 'Fails:',
     'browse' => 'Pārlūkot',
@@ -40,4 +41,9 @@ return [
     'hungarian' => 'Ungāru valoda',
     'german' => 'Vācu valoda',
     'swedish' => 'Zviedru valoda',
+    'likes' => 'Tīkšķi:',
+    'like' => 'Patīk',
+    'dislike' => 'Nepatīk',
+    'liked' => 'Materiālam ir ielikts tīkšķis!',
+    'unliked' => 'Materiālam ir noņemts tīkšķis!',
 ];

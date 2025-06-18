@@ -2,7 +2,10 @@
     <x-slot name="title">
         Upload Material
     </x-slot>
-    <style>
+    <x-slot name="style">
+        #wrapper {
+            width: 100vw;
+        }
         #form {
             width: 100%;
             display: flex;
@@ -10,30 +13,45 @@
             align-items: center;
         }
 
-        label {
+        #titleField {
+            width: 25vw;
+            display: flex;
+            justify-content: center;
+        }
+        .input {
+            border: 1px solid black;
             font-weight: 500;
             font-family: 'Buenard', serif;
             font-size: 125%;
         }
-    </style>
-    <div id="wrapper">
+        label, #file {
+            font-weight: 500;
+            font-family: 'Buenard', serif;
+            font-size: 125%;
+        }
+
+        #materialTitle {
+            height: 3vh;
+        }
+    </x-slot>
+    <div id="wrapper" class="mt-4">
         <form id="form" action="{{ route('materials.upload') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-4">
-                <label for="title" class="block font-semibold mb-1">{{__('materials.name')}}</label>
-                <input type="text" id="title" name="title" class="w-full border border-gray-300 rounded px-2 py-1" value="{{ old('title') }}">
+            <div id="titleField" class="mb-4">
+                <label for="file_name" class="block font-semibold m-2">{{__('materials.name')}}</label>
+                <input type="text" id="materialTitle" name="file_name" class="input mt-3" value="{{ old('file_name') }}">
             </div>
 
             <div class="mb-4">
-                <label for="file" class="block font-semibold mb-1">Fails:</label>
-                <input type="file" id="file" name="file" class="hidden" onchange="document.getElementById('filename').textContent = this.files[0]?.name || ''">
+                <label for="file_path" class="block font-semibold m-2">{{__('materials.file')}}</label>
+                <input type="file" id="file" name="file_path" accept=".pdf, .docx">
             </div>
 
             <div class="mb-4 flex items-center gap-4">
                 <div>
-                    <label for="language" class="block font-semibold mb-1">Valoda:</label>
-                    <select name="language" id="language" class="border rounded px-2 py-1">
+                    <label for="language_id" class="block font-semibold m-2">{{__('materials.language')}}</label>
+                    <select name="language_id" id="language" class="input px-2 py-1">
                         @foreach($languages as $language)
                             <option value="{{ $language->id }}" {{ old('language') == $language->id ? 'selected' : '' }}>
                                 {{ __($language->id) }}
@@ -41,16 +59,12 @@
                         @endforeach
                     </select>
                 </div>
-                <div>
-                    <label for="task" class="block font-semibold mb-1">Uzdevums:</label>
-                    <input type="checkbox" id="task" name="task" class="w-5 h-5 mt-1" {{ old('task') ? 'checked' : '' }}>
-                </div>
             </div>
 
             <div class="mb-4 grid grid-cols-3 gap-4">
                 <div>
-                    <label for="level" class="block font-semibold mb-1">Valodas līmenis:</label>
-                    <select name="level" id="level" class="w-full border rounded px-2 py-1">
+                    <label for="language_level_id" class="block font-semibold m-2">{{__('materials.languageLevel')}}</label>
+                    <select name="language_level_id" id="level" class="w-full px-2 py-1 input">
                         @foreach($languageLevels as $level)
                             <option value="{{ $level->id }}" {{ old('level') == $level->id ? 'selected' : '' }}>{{ $level->id }}</option>
                         @endforeach
@@ -58,8 +72,8 @@
                 </div>
 
                 <div>
-                    <label for="aspect" class="block font-semibold mb-1">Valodas nozare:</label>
-                    <select name="aspect" id="aspect" class="w-full border rounded px-2 py-1">
+                    <label for="language_aspect_id" class="block font-semibold m-2">{{__('materials.languageAspect')}}</label>
+                    <select name="language_aspect_id" id="aspect" class="w-full px-2 py-1 input">
                         @foreach($languageAspects as $aspect)
                             <option value="{{ $aspect->id }}" {{ old('aspect') == $aspect->id ? 'selected' : '' }}>
                                 {{ __($aspect->id) }}
@@ -69,15 +83,13 @@
                 </div>
             </div>
 
-            <!-- Apraksts -->
             <div class="mb-4">
-                <label for="description" class="block font-semibold mb-1">Apraksts:</label>
-                <textarea name="description" id="description" maxlength="500" rows="4" class="w-full border rounded px-2 py-1">{{ old('description') }}</textarea>
+                <label for="description" class="block font-semibold m-2">{{__('materials.description')}}</label>
+                <textarea name="description" id="description" maxlength="500" rows="4" class="w-full input px-2 py-1">{{ old('description') }}</textarea>
             </div>
 
-            <!-- Submit -->
             <div class="text-center">
-                <button type="submit" class="bg-white px-4 py-2 border rounded hover:bg-gray-100">Augšupielādēt</button>
+                <button type="submit" class="btn px-4 py-2 input hover:bg-gray-100">{{__('materials.upload')}}</button>
             </div>
         </form>
     </div>

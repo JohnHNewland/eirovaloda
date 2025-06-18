@@ -9,6 +9,7 @@ return [
     'filter' => 'Filter by language:',
     'selectLanguage' => 'Select language',
     'upload' => 'Upload',
+    'download' => 'Download',
     'name' => 'Name:',
     'file' => 'File:',
     'browse' => 'Browse',
@@ -40,4 +41,9 @@ return [
     'hungarian' => 'Hungarian',
     'german' => 'German',
     'swedish' => 'Swedish',
+    'likes' => 'Likes:',
+    'like' => 'Like',
+    'dislike' => 'Unlike',
+    'liked' => 'The material has been liked!',
+    'unliked' => 'The material has been unliked!',
 ];
