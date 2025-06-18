@@ -22,9 +22,9 @@
 </head>
 <body>
 
-    <p>{{ __('Uzspied uz šo linku, lai apstiprinātu e-pastu: ' . $user->email) }}</p>
+    <p>{{ 'Uzspied uz šo linku, lai apstiprinātu e-pastu: ' . $user->email }}</p>
     <a href="{{ $url }}">
-        {{ __('Apstiprināt e-pastu') }}
+        Apstiprināt e-pastu
     </a>
 </body>
 </html>

@@ -21,13 +21,13 @@ class Localization
             if (in_array($language, $allowedLocales)) {
                 App::setLocale($language);
             } else {
-                abort(404);
+                abort(404, 'The cookie language is not allowed.');
             }
         } else { // Secondary
             $locale = $request->route('locale');
 
             if (!in_array($locale, $allowedLocales)) {
-                abort(404); // or redirect to default locale
+                abort(404, 'No locale set');
             }
 
             App::setLocale($locale);

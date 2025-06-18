@@ -12,17 +12,9 @@
         #topics {
             width: 25%;
         }
-        #toolbar {
-            position: sticky;
-            z-index: 1000;
-            top: 0;
-        }
         #materials {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             width: 55%;
-            margin-left: 20%;
+            margin-left: 10%;
         }
         #materials a, #toolbar a {
             text-decoration: none;
@@ -66,7 +58,7 @@
         .material {
             font-weight: 500;
             font-family: 'Buenard', serif;
-            font-size: 125%;
+            font-size: 150%;
             text-decoration: underline;
             color: black;
         }
@@ -75,6 +67,23 @@
             font-weight: 500;
             font-family: 'Buenard', serif;
             margin: 2vh 0;
+        }
+
+        .success-msg {
+            width:70%;
+            background-color: #F5EED2;
+            color: black;
+            font-family: 'Buenard', serif;
+            font-size: 125%;
+            border: 1px solid black;
+            margin-top: 1vh;
+            border-radius: 2px;
+            list-style: none;
+        }
+
+        #success-wrapper {
+            display: flex;
+            justify-content: center;
         }
 
     </x-slot>
@@ -169,7 +178,7 @@
             </ul>
         </div>
         <div id="vertLine"></div>
-        <div id="materials" class="d-flex flex-column">
+        <div id="materials" class="d-flex flex-column items-center">
             <div id="toolbar" class="d-flex justify-content-between">
                 <form method="POST" action="{{route('materials.applyFilter')}}">
                     @csrf
@@ -187,12 +196,19 @@
                     <a id="upload" href="{{route('materials.showUpload')}}">{{__('materials.upload')}}</a>
                 @endcan
             </div>
-            @if($materials)
-                <h1 id="materialTitle">All materials</h1>
+            <div id="success-wrapper">
+                @if (session('status'))
+                    <div class="alert success-msg">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+            @if($materials->isNotEmpty())
+                <h1 id="materialTitle" class="">All materials</h1>
             @endif
-            <div id="materialDocs">
+            <div id="materialDocs" class="d-flex flex-column align-items-center">
                 @foreach($materials as $material)
-                    <a class="material" href="{{route('materials.show', $material->id)}}">{{$material->file_name}}</a>
+                    <a class="material mb-2" href="{{route('materials.show', $material->id)}}">{{$material->file_name}}</a>
                 @endforeach
             </div>
         </div>

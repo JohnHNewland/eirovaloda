@@ -102,7 +102,7 @@ class MaterialController extends Controller
 
         Material::create($validated);
 
-        return redirect()->back()->with('success', 'Material uploaded successfully.');
+        return redirect()->back()->with('status', __('materials.uploaded'));
     }
 
     /**
@@ -128,24 +128,57 @@ class MaterialController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $locale, string $id)
     {
-        //
+        $material = Material::findOrFail($id);
+        $languages = Language::all();
+        $languageLevels = LanguageLevel::all();
+        $languageAspects = LanguageAspect::all();
+        return view('materials.edit', compact('material', 'languages', 'languageLevels', 'languageAspects'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $locale, string $id)
     {
-        //
+        if (auth()->user()->cannot('update', Material::class)) {
+            abort(403, 'You are not authorized to update this material.');
+        }
+
+        $material = Material::findOrFail($id);
+
+        $validated = $request->validate([
+            'file_name' => 'required|string|max:255',
+            'language_id' => 'required|string',
+            'language_level_id' => 'required|string',
+            'language_aspect_id' => 'required|string',
+            'description' => 'nullable|string|max:500',
+        ]);
+
+        $material->file_name = $validated['file_name'];
+        $material->language_id = $validated['language_id'];
+        $material->language_level_id = $validated['language_level_id'];
+        $material->language_aspect_id = $validated['language_aspect_id'];
+        $material->description = $validated['description'];
+        $material->save();
+
+        return redirect()->route('materials.show', [app()->getLocale(), $material->id])->with('status', __('materials.updated'));
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, string $locale, string $id)
     {
-        //
+        $material = Material::findOrFail($id);
+        if (auth()->user()->cannot('delete', $material)) {
+            abort(403, 'You are not authorized to delete this material.');
+        }
+
+        $material->delete();
+        return redirect()->route('materials')->with('status', __('materials.deleted'));
     }
 }

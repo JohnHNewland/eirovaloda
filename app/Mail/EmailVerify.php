@@ -40,7 +40,7 @@ class EmailVerify extends Mailable
         $url = URL::temporarySignedRoute(
             'verify.teacher.email',
             now()->addMinutes(60),
-            ['user' => $this->user->user_id]
+            ['user_id' => $this->user->id]
         );
 
         return new Content(

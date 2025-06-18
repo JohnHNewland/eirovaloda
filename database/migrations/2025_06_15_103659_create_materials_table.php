@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id');
             $table->string('file_name', 50);
             $table->string('file_path');
-            $table->string('description', 500);
+            $table->string('description', 500)->nullable();
             $table->integer('likes')->default(0);
             $table->string('language_id', 30);
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
