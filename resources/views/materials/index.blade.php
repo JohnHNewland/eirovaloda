@@ -24,7 +24,7 @@
             width: 1px;
             background-color: black;
         }
-        .form-label {
+        .form-label, select {
             font-weight: 500;
             font-family: 'Buenard', serif;
             font-size: 125%;
@@ -53,6 +53,13 @@
             font-size: 125%;
             text-decoration: none;
             color: black;
+            border: 1px solid black;
+        }
+
+        #upload:hover {
+            background-color: #e9e0c1;
+            color: black;
+            border-color: gray;
         }
 
         .material {
@@ -179,7 +186,7 @@
         </div>
         <div id="vertLine"></div>
         <div id="materials" class="d-flex flex-column items-center">
-            <div id="toolbar" class="d-flex justify-content-between">
+            <div id="toolbar" class="d-flex justify-content-between mt-4">
                 <form method="POST" action="{{route('materials.applyFilter')}}">
                     @csrf
                     <label for="filterDropdown" class="form-label">{{__('materials.filter')}}</label>
@@ -193,7 +200,7 @@
                     </select>
                 </form>
                 @can('create', App\Models\Material::class)
-                    <a id="upload" href="{{route('materials.showUpload')}}">{{__('materials.upload')}}</a>
+                    <a id="upload" class="btn" href="{{route('materials.showUpload')}}">{{__('materials.upload')}}</a>
                 @endcan
             </div>
             <div id="success-wrapper">

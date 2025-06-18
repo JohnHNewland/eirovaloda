@@ -18,6 +18,7 @@
             display: flex;
             justify-content: center;
         }
+
         .input {
             border: 1px solid black;
             border-radius: 4px;

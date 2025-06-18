@@ -53,7 +53,7 @@
                 <div class="ver-line mx-2"></div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">{{ __('navbar.translator') }}</a>
+                <a class="nav-link" href="{{route('translate.index')}}">{{ __('navbar.translator') }}</a>
             </li>
             @endauth
         </ul>

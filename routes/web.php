@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\TranslateController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\App;
@@ -40,6 +41,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'localization'], function 
         Route::get('/materials/edit/{id}', [MaterialController::class, 'edit'])->name('materials.edit');
         Route::post('/materials/edit/{id}', [MaterialController::class, 'update'])->name('materials.update');
         Route::delete('/materials/{id}', [MaterialController::class, 'destroy'])->name('materials.destroy');
+        Route::get('/translator', [TranslateController::class, 'index'])->name('translate.index');
+        Route::post('/translator', [TranslateController::class, 'translate'])->name('translate.perform');
     });
 
     Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
@@ -51,7 +54,6 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'localization'], function 
     Route::get('/materials/{level}/{aspect}', [MaterialController::class, 'indexAspect'])->name('materials.aspect');
 
 
-    // Route::get('/translator', );
 
 });
 
