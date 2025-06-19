@@ -178,6 +178,10 @@ class MaterialController extends Controller
             abort(403, 'You are not authorized to delete this material.');
         }
 
+        if (Storage::disk('public')->exists($material->file_path)) {
+            Storage::disk('public')->delete($material->file_path);
+        }
+
         $material->delete();
         return redirect()->route('materials')->with('status', __('materials.deleted'));
     }
