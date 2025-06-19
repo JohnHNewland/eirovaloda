@@ -10,6 +10,7 @@ return [
     'selectLanguage' => 'Select language',
     'upload' => 'Upload',
     'uploaded' => 'The material has been uploaded successfully.',
+    'allMaterials' => 'All materials',
     'update' => 'Update',
     'updated' => 'The material has been updated successfully.',
     'deleted' => 'The material has been deleted successfully.',

@@ -10,6 +10,7 @@ return [
     'selectLanguage' => 'Izvēlies valodu',
     'upload' => 'Augšupielādēt',
     'uploaded' => 'Materiāls ir veiksmīgi augšupielādēts',
+    'allMaterials' => 'Visi materiāli',
     'update' => 'Mainīt',
     'updated' => 'Materiāls ir veiksmīgi izmainīts.',
     'deleted' => 'Materiāls ir veiksmīgi izdzēsts.',

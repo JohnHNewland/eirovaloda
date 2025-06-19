@@ -15,11 +15,11 @@
         }
         html {
             height: 100vh;
+            margin: 0;
+            padding: 0;
         }
         body {
             height: 100%;
-            margin: 0;
-            padding: 0;
         }
         .main-container {
             width: 100vw;
@@ -35,7 +35,9 @@
             position: sticky;
             top: 0;
             z-index: 1000; /* Ensure it stays above other content */
-            padding: 0 0.5rem;
+            padding: 0;
+            margin: 0;
+
         }
 
         #header {
@@ -57,7 +59,6 @@
             height: 1px;
             background-color: black;
             width: 100%; /* length of the line */
-            margin: 0 10px;
         }
 
         .nav-link {

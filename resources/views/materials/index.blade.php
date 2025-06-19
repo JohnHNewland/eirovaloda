@@ -211,7 +211,7 @@
                 @endif
             </div>
             @if($materials->isNotEmpty())
-                <h1 id="materialTitle" class="">All materials</h1>
+                <h1 id="materialTitle" class="">{{__('materials.allMaterials')}}</h1>
             @endif
             <div id="materialDocs" class="d-flex flex-column align-items-center">
                 @foreach($materials as $material)
