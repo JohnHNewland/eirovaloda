@@ -8,7 +8,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Buenard&display=swap" rel="stylesheet">
-    <style> {{ $style }}</style>
+    <style> {{ $style }}</style> <!-- After making many more styles, should have left the <style> tags for each view... -->
     <style>
         *, body {
             background-color: #F5EED2;

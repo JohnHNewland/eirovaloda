@@ -3,6 +3,7 @@
 return [
     'chosenLanguage' => 'Izvēlētā valoda',
     'targetLanguage' => 'Mērķa valoda',
+    'insertText' => 'Ievadi tekstu...',
     'english' => 'Angļu valoda',
     'bulgarian' => 'Bulgāru valoda',
     'czech' => 'Čehu valoda',

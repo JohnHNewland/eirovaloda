@@ -50,7 +50,7 @@
                     <option value="sv">{{__('translate.swedish')}}</option>
                 </select>
             </label>
-            <textarea id="sourceText" class="input" name="sourceText" placeholder="Ievadi tekstu..."></textarea>
+            <textarea id="sourceText" class="input" name="sourceText" placeholder="{{__('translate.insertText')}}"></textarea>
         </div>
 
         <div class="block">
@@ -66,7 +66,7 @@
             <textarea id="targetText" class='input' name="targetText" ></textarea>
         </div>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <button id="translateBtn" class="btn btn-dark" onclick="doTranslate()">Tulkot</button>
+            <button id="translateBtn" class="btn input" onclick="doTranslate()">{{__('translate.translate')}}</button>
         </div>
     </form>
 
@@ -91,6 +91,7 @@
                 })
                 .catch(error => {
                     console.error('Translation error:', error);
+                    alert('There was an error: ' + error);
                 });
         }
     </script>

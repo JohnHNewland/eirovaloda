@@ -3,6 +3,7 @@
 return [
     'chosenLanguage' => 'Chosen language',
     'targetLanguage' => 'Target language',
+    'insertText' => 'Insert text...',
     'english' => 'English',
     'bulgarian' => 'Bulgarian',
     'czech' => 'Czech',

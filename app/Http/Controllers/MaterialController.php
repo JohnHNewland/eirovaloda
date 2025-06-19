@@ -130,7 +130,13 @@ class MaterialController extends Controller
      */
     public function edit(string $locale, string $id)
     {
+
         $material = Material::findOrFail($id);
+
+        if (auth()->user()->cannot('update', $material)) {
+            abort(403, 'You are not authorized to edit this material.');
+        }
+
         $languages = Language::all();
         $languageLevels = LanguageLevel::all();
         $languageAspects = LanguageAspect::all();
@@ -142,11 +148,12 @@ class MaterialController extends Controller
      */
     public function update(Request $request, string $locale, string $id)
     {
-        if (auth()->user()->cannot('update', Material::class)) {
-            abort(403, 'You are not authorized to update this material.');
-        }
 
         $material = Material::findOrFail($id);
+
+        if (auth()->user()->cannot('update', $material)) {
+            abort(403, 'You are not authorized to update this material.');
+        }
 
         $validated = $request->validate([
             'file_name' => 'required|string|max:255',

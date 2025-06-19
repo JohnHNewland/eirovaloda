@@ -26,15 +26,15 @@
         }
 
         .like:hover {
-        background-color: #e9e0c1;
-        color: black;
-        border-color: gray;
+            background-color: #e9e0c1;
+            color: black;
+            border-color: gray;
         }
 
         .download:hover {
-        background-color: #e9e0c1;
-        color: black;
-        border-color: gray;
+            background-color: #e9e0c1;
+            color: black;
+            border-color: gray;
         }
 
         .download {
